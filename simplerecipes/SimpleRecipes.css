@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+button {
+  background-color: #90a88e; /* Green */
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  justify-content:center;
+  margin: 0 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #e18d01;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #fbd977;
+  color: black;
+}
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+} */
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  display: flex;
+  justify-content:center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+}
+
+
+img {
+    /* padding: 0 5% 5% 5%; */
+    width: 100%;
+    /* height: 50vw; */
+}
+
+.pantryimage {
+  width: 100%;
+  height: 100%;
+}
+
+.pantryimage img {
+  /*overflow-x: hidden;*/
+  /*width: vw;*/
+  object-fit: cover;
+  height: 500px;
+}
+
+.pantryimage .button {
+  /*position: absolute;*/
+  top: 50%;
+  margin-left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #90a88e;
+  color: white;
+  font-size: 20px;
+  /*padding: 12px 24px;*/
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pantryimage .button:hover {
+  background-color: #fbd977;
+  color: black;
+}
+
+body {
+  margin: 0;
+}
+
+@media (max-width: 1500px) {
+  h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4%;
+  }
+}
+
+@media (max-width: 800px) {
+  h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 8%;
+  }
+}

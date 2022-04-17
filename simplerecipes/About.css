@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #e18d01;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 8px 8px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #fbd977;
+  color: black;
+}
+
+/* .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+} */
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  justify-content:center;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  padding-top: 2%;
+  /*display: flex;*/
+  /*justify-content:;*/
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6%;
+  padding-bottom: 4%;
+}
+
+
+.bodytext {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+a {
+  color: #black;
+  text-decoration: none;
+}
+
+/*.vinesimage {
+  display: flex;
+  flex-direction: flex-end;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+}*/
+
+.vinesimage {
+  width:100%;
+  position: absolute;
+  bottom: 2%;
+}
+.vinesimage img {
+  position: relative;
+  display: block;
+  float: left;
+}
+
+/*.vinesimage img {
+  /*overflow-x: hidden;*/
+  /*width: vw;*/
+  /*object-fit: center;
+  height: 280px;
+}*/
+
+@media (max-width: 1200px) {
+  .bodytext {
+    margin-top: 10%;
+  }
+  .vinesimage {
+    width:100%;
+    position: absolute;
+    bottom: 6%;
+  }
+  .vinesimage img {
+    position: relative;
+    display: block;
+    float: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .bodytext {
+    margin-top: 15%;
+  }
+  .vinesimage {
+    width:100%;
+    position: absolute;
+    bottom: 10%;
+  }
+  .vinesimage img {
+    position: relative;
+    display: block;
+    float: left;
+  }
+}

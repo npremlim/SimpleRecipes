@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="SimpleRecipes.css"/>
+    <link rel="stylesheet" type="text/css" href="Input.css"/>
+  </head>
+  <body>
+      <div class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Availability.html">Availability</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+    </div>
+
+    
+    
+    <h2>Ingredients</h2>
+    <p class="bodytext" >
+    </p>
+
+    <button type="submit" class="btn" id="displaybutton" onclick=openForm()>Display</button>
+  
+    <form method="post" action="form.php" id="allingredients">
+      <input type="text" name="fname" value="<?=$a?>" id="retrieve">
+    </form>
+    <script>
+      document.getElementById("allingredients").style.display = "none";
+      document.getElementById("retrieve").style.display = "none";
+
+    </script>
+
+<script> 
+  
+  function openForm() {
+    document.getElementById("allingredients").style.display = "block";
+    document.getElementById("retrieve").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("allingredients").style.display = "none";
+    document.getElementById("retrieve").style.display = "none";
+  }
+
+  function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  function selectingredients(){
+   var initialize="SELECT name FROM recipelist WHERE";
+   var hello = "hello";
+   let counter=0;
+    var checkboxes = document.getElementsByName('ingredientquery');
+    for (var checkbox of checkboxes)
+    {
+        if (checkbox.checked && counter !=0 ) {
+            initialize+=" AND ingredients LIKE '%"+ checkbox.id +"%'";
+        }
+        else if(checkbox.checked && counter ==0 ){
+          initialize+=" ingredients LIKE '%"+ checkbox.id +"%'";
+          counter++;
+
+        }
+    }
+    document.cookie = "test="+initialize;
+   var test = `<?php 
+   $servername = "localhost";
+$username = "naomi";
+$password = "simplerecipes";
+$dbname = "ingredients";
+
+// Create connection
+$conn4 = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn4->connect_error) {
+  die("Connection failed: " . $conn4->connect_error);
+} 
+
+   $sql1 = $_COOKIE['test'];
+    
+    
+      $result = $conn4->query($sql1);
+
+      if ($result->num_rows > 0) {
+  // output data of each row
+          while($row = $result->fetch_assoc()) {
+
+            echo "<input type=\"text\" value=\"".$row['name'] ."\" id=\"recipename\" readonly>";
+        }
+
+      }
+
+      else {
+           echo "0 results" ;
+          }
+          $conn4->close();
+    
+    
+  ?>`;
+
+          console.log(test);
+          document.getElementById("finalrecipes").innerHTML = test;
+          test ="";
+    getRecipe();
+    
+
+    
+}
+
+function getRecipe() {
+  document.getElementById("recipename").style.display = "block";
+  document.getElementById("newstring").style.display = "block";
+
+}
+
+  </script>
+
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ingredients..">
+
+<ul id="myUL">
+  <?php
+  $servername = "localhost";
+  $username = "naomi";
+  $password = "simplerecipes";
+  $dbname = "ingredients";
+  
+  // Create connection
+  $conn2 = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn2->connect_error) {
+    die("Connection failed: " . $conn2->connect_error);
+  } 
+  
+  $sql = "SELECT name FROM ingredientlist ";
+  $result = $conn2->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      
+     
+      echo "<li><a><input name = \"ingredientquery\"type= \"checkbox\" id=\"".$row['name'] ."\" > " . $row['name'] . "</a></li>";
+
+      }
+     
+    }
+   else {
+    echo "0 results";
+  }
+  $conn2->close();
+  ?>
+  
+</ul>
+<button type="submit" class="btn" id="findbutton" onclick=selectingredients()>FIND RECIPE</button>
+<div id="finalrecipes"></div>
+
+
+
+    
+  </body>
+  </html>
+  
